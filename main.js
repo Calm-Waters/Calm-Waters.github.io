@@ -39,9 +39,9 @@ if (window.location.pathname.includes("register.html")) {
     if (registerForm) {
         registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const passwordConfirm = document.getElementById('passwordConfirm').value;
+            const username = document.getElementById('newUsername').value;
+            const password = document.getElementById('newPassword').value;
+            const passwordConfirm = document.getElementById('repeatPassword').value;
 
             // Check if passwords match
             if (password !== passwordConfirm) {
