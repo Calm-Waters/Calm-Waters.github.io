@@ -34,3 +34,19 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
         alert("Error: " + error.message);
     }
 });
+
+// Login Function
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        // Sign in the user
+        const userCredential = await auth.signInWithEmailAndPassword(username, password);
+        alert("Login successful!");
+        window.location.href = "dashboard.html";  // Redirect to a protected page (you'll create it later)
+    } catch (error) {
+        alert("Error: " + error.message);
+    }
+});
