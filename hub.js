@@ -8,7 +8,7 @@ const firebaseConfig = {
     appId: "1:469054983781:web:ac4f0bc7681074b6edc08c"
 };
 
-// Initialize Firebase
+// Initialize Firebase (make sure this is done before using Firebase features)
 firebase.initializeApp(firebaseConfig);
 
 // This function will be triggered on authentication state change
