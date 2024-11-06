@@ -8,24 +8,36 @@ const firebaseConfig = {
     appId: "1:469054983781:web:ac4f0bc7681074b6edc08c"
 };
 
-// Initialize Firebase (make sure this is done before using Firebase features)
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// This function will be triggered on authentication state change
-firebase.auth().onAuthStateChanged(function(user) {
-    const statusMessage = document.getElementById('statusMessage');
+// Reference to elements
+const statusMessage = document.getElementById('statusMessage');
+const logoutButton = document.getElementById('logoutButton');
 
+// Check if the user is logged in
+firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        // If the user is logged in, show a success message and proceed
-        statusMessage.textContent = 'Logged in successfully!';
-        document.body.innerHTML += `<p>Welcome, ${user.email}!</p>`;
-        // You can redirect the user to another part of your app if needed
-        // window.location.href = "another-page.html";
+        // User is logged in
+        statusMessage.textContent = `Logged in successfully! Welcome, ${user.displayName || user.email}`;
     } else {
-        // If the user is not logged in, redirect them to the login page
-        statusMessage.textContent = 'You are not logged in. Redirecting to login...';
+        // No user is logged in, redirect to login page
+        statusMessage.textContent = 'You are not logged in. Redirecting to login page...';
         setTimeout(() => {
-            window.location.href = "login.html"; // Redirect to the login page
-        }, 2000); // 2 seconds delay
+            window.location.href = "login.html"; // Redirect to login page
+        }, 2000); // Delay for 2 seconds
+    }
+});
+
+// Logout functionality
+logoutButton.addEventListener('click', async function() {
+    try {
+        // Log out the user from Firebase
+        await firebase.auth().signOut();
+        // Redirect to login page after logout
+        window.location.href = "login.html";
+    } catch (error) {
+        console.error("Error logging out: ", error);
+        statusMessage.textContent = `Error logging out: ${error.message}`;
     }
 });
