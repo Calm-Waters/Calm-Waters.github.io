@@ -11,27 +11,32 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Check if the login page is loaded and initialize the login logic
-if (window.location.pathname.includes("login.html")) {
+// Login
+document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        loginForm.addEventListener('submit', async function (e) {
+            e.preventDefault();  // Prevent default form submission behavior
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-
+            // Check if the fields are not empty
+            if (!username || !password) {
+                alert("Please fill in both fields.");
+                return;
+            }
+            // Try to log in with Firebase
             try {
                 const userCredential = await firebase.auth().signInWithEmailAndPassword(username, password);
-                alert("Login successful!");
-                window.location.href = "hub.html";  // Redirect to hub page
+                console.log('Login successful:', userCredential.user);
+                // Redirect to the "hub" page or any other page
+                window.location.href = "hub.html";  // Adjust based on your actual page
             } catch (error) {
-                alert("Error: " + error.message);
+                console.error('Error logging in:', error.message);
+                alert("Error: " + error.message);  // Display error message to the user
             }
         });
-    } else {
-        console.log("Login form not found");
     }
-}
+});
 
 // Check if the registration page is loaded and initialize the registration logic
 if (window.location.pathname.includes("register.html")) {
