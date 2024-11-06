@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // No user is logged in, redirect to login page
         statusMessage.textContent = 'You are not logged in. Redirecting to login page...';
         setTimeout(() => {
-            window.location.href = "login.html"; // Redirect to login page
+            window.location.href = "index.html"; // Redirect to login page
         }, 2000); // Delay for 2 seconds
     }
 });
