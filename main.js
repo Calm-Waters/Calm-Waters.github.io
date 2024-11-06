@@ -35,7 +35,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     }
 });
 
-// Login Function
+// Login Function 
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;
@@ -45,7 +45,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         // Sign in the user
         const userCredential = await auth.signInWithEmailAndPassword(username, password);
         alert("Login successful!");
-        window.location.href = "dashboard.html";  // Redirect to a protected page (you'll create it later)
+        window.location.href = "hub.html";  // Redirect to the hub page
     } catch (error) {
         alert("Error: " + error.message);
     }
