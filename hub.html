@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub</title>
-    <!-- Firebase SDK (v8, non-modular) -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    
+    <!-- Firebase SDK v8 (single file) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+    <!-- Your custom JavaScript file should come after Firebase SDK -->
+    <script src="hub.js"></script>
 </head>
 <body>
     <div id="statusMessage">Checking login status...</div>
-
-    <script src="hub.js"></script>
 </body>
 </html>
