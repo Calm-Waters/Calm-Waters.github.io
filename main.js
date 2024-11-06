@@ -12,3 +12,25 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
+// Registration Function
+document.getElementById('registerForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('newUsername').value;
+    const password = document.getElementById('newPassword').value;
+    const repeatPassword = document.getElementById('repeatPassword').value;
+
+    // Password validation
+    if (password !== repeatPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    try {
+        // Create user with email and password
+        const userCredential = await auth.createUserWithEmailAndPassword(username, password);
+        alert("Registration successful!");
+        window.location.href = "index.html";  // Redirect to login page
+    } catch (error) {
+        alert("Error: " + error.message);
+    }
+});
