@@ -27,33 +27,33 @@ window.hub_mod = `
 }
 
 #chat-box {
-  flex: 1;
-  overflow-y: auto;
-  margin-bottom: 10px;
+	flex: 1;
+	overflow-y: auto;
+	margin-bottom: 10px;
 }
 
 #chat-box div {
-  margin: 5px 0;
+	margin: 5px 0;
 }
 
 #chat-input {
-  flex: 0;
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
+	flex: 0;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 #send-button {
-  padding: 10px;
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
+	padding: 10px;
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
 }
 
 #send-button:hover {
-  background-color: #45a049;
+	background-color: #45a049;
 }
 </style>
 <div class="scene hbox hub">
