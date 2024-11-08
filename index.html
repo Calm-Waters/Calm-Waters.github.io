@@ -15,6 +15,17 @@
             event.preventDefault();
         });
 
+        const firebaseConfig = {
+            apiKey: "AIzaSyA3k7RiiqOTWRyNgFdw4Z2-c1Cm106OdLo",
+            authDomain: "custom-nexus.firebaseapp.com",
+            projectId: "custom-nexus",
+            storageBucket: "custom-nexus.firebasestorage.app",
+            messagingSenderId: "469054983781",
+            appId: "1:469054983781:web:ac4f0bc7681074b6edc08c"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
         // load module as main page
         function loadPage(moduleName) {
             if ((window[moduleName + '_mod']) && false /* false to force reload during testing*/) {
