@@ -23,6 +23,7 @@ window.login_mod = `
 		event.preventDefault();  // Prevent default form submission behavior
 		const username = document.getElementById('username').value;
 		const password = document.getElementById('password').value;
+  		console.log("Hello, this is a console message!");
 		// Check if the fields are not empty
 		if (!username || !password) {
 			alert("Please fill in both fields.");
