@@ -3,23 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Custom Forge</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Login</h1>
-    <form id="loginForm">
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button type="submit">Log In</button>
-    </form>
-    <p>Don't have an account? <a href="register.html">You can register here</a></p>
-    
-    <!-- Firebase SDK (v8, non-modular) -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script>
+        // suppress the default context menu since this is meant to be closer to a game than a webpage, UI-wise. Anyone who really wants to see it can just use a keyboard shortcut.
+        document.addEventListener('contextmenu', function(event) {
+            // Prevent the default context menu
+            event.preventDefault();
+        });
 
-    <!-- Your custom JS -->
-    <script src="main.js"></script>
+        // load module as main page
+        function loadPage(moduleName) {
+            if ((window[moduleName + '_mod']) && false /* false to force reload during testing*/) {
+                document.body.innerHTML = window[moduleName + '_mod'];
+                // Run any additional JavaScript logic in the module if it exists
+                if (window[moduleName + '_init']) {
+                    window[moduleName + '_init'](); 
+                }
+            } else {
+                const scriptUrl = `modules/${moduleName}.js`;
+                const script = document.createElement('script');
+                script.src = scriptUrl;
+                script.type = 'text/javascript';
+                script.onload = function() {
+                    const content = window[moduleName + '_mod'];
+                    if (content) {
+                        document.body.innerHTML = content;
+                        if (window[moduleName + '_init']) {
+                            window[moduleName + '_init'](); 
+                        }
+                    } else {
+                        document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
+                    }
+                };
+                script.onerror = function() {
+                    document.body.innerHTML = '<p>Error loading module.</p>';
+                };
+                document.body.appendChild(script);
+            }
+        }
+        loadPage('login');
+
+        //login
+        function handleLogin(event){
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Authentification logic (currently placeholder)
+            if (username === 'username' && password === 'password') {
+                loadPage('hub');  
+            } else {
+                alert('Invalid username or password');
+            }
+        }
+    </script>
 </body>
 </html>
-
