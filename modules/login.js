@@ -18,7 +18,8 @@ window.login_mod = `
 		</div>
 	</form>
 </div>
-<script>
+`;
+window.hub_init = function() {
 	async function handleLogin(event) {
 		event.preventDefault();  // Prevent default form submission behavior
 		const username = document.getElementById('username').value;
@@ -40,6 +41,4 @@ window.login_mod = `
 			alert("Error: " + error.message);  // Display error message to the user
 		}
  	}
-</script>
-`;
-
+}
