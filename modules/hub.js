@@ -75,4 +75,35 @@ window.hub_mod = `
 	</div>
 </div>
 `;
-
+window.hub_init = function() {
+	const database = firebase.database();
+	const chatBox = document.getElementById('chat-box');
+	const chatInput = document.getElementById('chat-input');
+	const sendButton = document.getElementById('send-button');
+	function listenForMessages() {
+		database.ref('messages').on('child_added', (snapshot) => {
+			const messageData = snapshot.val();
+			displayMessage(messageData.text);
+	})};
+	function displayMessage(text) {
+		const messageElement = document.createElement('div');
+			messageElement.textContent = text;
+			chatBox.appendChild(messageElement);
+			chatBox.scrollTop = chatBox.scrollHeight;
+	}
+	function sendMessage() {
+		const text = chatInput.value;
+		if (text.trim() !== "") {
+			const message = { text: text };
+			database.ref('messages').push(message);
+			chatInput.value = '';
+		}
+	}
+	sendButton.addEventListener('click', sendMessage);
+	chatInput.addEventListener('keypress', (e) => {
+		if (e.key === 'Enter') {
+			sendMessage();
+	}
+	});
+	listenForMessages();
+};
