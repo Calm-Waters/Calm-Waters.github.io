@@ -28,6 +28,11 @@ window.hub_mod = `
 		    <button onclick="loadPage('test')">Edit Profile</button>
 		</div>
 	</div>
+ 	<div id="chat-container">
+		<div id="chat-box"></div>
+		<input type="text" id="chat-input" placeholder="Type a message...">
+		<button id="send-button">Send</button>
+	</div>
 </div>
 `;
 
