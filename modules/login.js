@@ -20,7 +20,7 @@ window.login_mod = `
 </div>
 <script>
 	async function handleLogin(event) {
-		e.preventDefault();  // Prevent default form submission behavior
+		event.preventDefault();  // Prevent default form submission behavior
 		const username = document.getElementById('username').value;
 		const password = document.getElementById('password').value;
 		// Check if the fields are not empty
