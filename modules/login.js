@@ -1,7 +1,7 @@
 const moduleName = "login";
 window[moduleName + '_layout'] = `
 <div class="scene hbox centercontainer login">
-	<form id="loginForm" onsubmit="pintMessage()">
+	<form id="loginForm" onsubmit="printMessage()">
 		<div class="form-group">
 			<input type="text" id="email" name="email" placeholder="email" required>
 		</div>
