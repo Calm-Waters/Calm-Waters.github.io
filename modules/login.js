@@ -1,4 +1,5 @@
-window.login_layout = `
+const moduleName = "login";
+window[moduleName + '_layout'] = `
 <div class="scene hbox centercontainer login">
 	<form id="loginForm" onsubmit="login(event)">
 		<div class="form-group">
