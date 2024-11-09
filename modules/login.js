@@ -22,3 +22,7 @@ function greetUser(name) {
 	console.log(`Hello, ${name}!`);
 }
 greetUser('Alice');
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+	event.preventDefault();
+	greetUser('Josh');
+}
