@@ -20,7 +20,6 @@ window.login_mod = `
 </div>
 `;
 window.hub_init = function() {
-	console.log("Login code loading...");
 	document.addEventListener('DOMContentLoaded', function () {
 	    const loginForm = document.getElementById('loginForm');
 	    if (loginForm) {
