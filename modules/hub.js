@@ -1,20 +1,18 @@
 const moduleName = "hub";
 window[moduleName + '_layout'] = `
-<style>
-
-</style>
-<div class="scene hbox hub">
-	<div class="vbox centercontainer">
-		<div class="vscroll">
-			<button onclick="loadPage('duel')">Duel</button>
-			<button onclick="loadPage('test')">Deck Editor</button>
-			<button onclick="loadPage('test')">Card Editor</button>
-			<button onclick="loadPage('test')">Replays</button>
-			<button onclick="loadPage('test')">Puzzles</button>
-		    <button onclick="loadPage('login')">Exit</button>
-		    <button onclick="loadPage('test')">Edit Profile</button>
+<div class="scene hbox centercontainer login">
+	<form id="loginForm" onsubmit="login(event)">
+		<div class="form-group">
+			<input type="text" id="email" name="email" placeholder="email" required>
 		</div>
-	</div>
+		<div class="form-group">
+			<input type="password" id="password" name="password" placeholder="password" required>
+		</div>
+		<div class="hbox centercontainer">
+			<button type="submit">Log In</button>
+			<button onclick="loadPage('hub')">Skip</button>
+		</div>
+	</form>
 </div>
 `;
 console.log('this should execute on module load');
