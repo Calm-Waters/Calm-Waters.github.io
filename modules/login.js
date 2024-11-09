@@ -21,3 +21,4 @@ window.login_layout = `
 function greetUser(name) {
 	console.log(`Hello, ${name}!`);
 }
+greetUser('Alice');
