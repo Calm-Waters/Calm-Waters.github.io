@@ -1,4 +1,5 @@
-window.duel_layout = `
+const moduleName = "duel";
+window[moduleName + '_layout'] = `
 <style>
 	.card-cell {
 		flex: 1;
