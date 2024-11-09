@@ -3,7 +3,7 @@ window.login_layout = `
 
 </style>
 <div class="scene hbox centercontainer login">
-	<form id="loginForm" onsubmit="login(event)">
+	<form id="loginForm"">
 		<div class="form-group">
 			<input type="text" id="email" name="email" placeholder="email" required>
 		</div>
