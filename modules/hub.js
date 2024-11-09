@@ -16,3 +16,4 @@ window.hub_mod = `
 	</div>
 </div>
 `;
+console.log('this should execute on module load');
