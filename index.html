@@ -8,18 +8,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Content will be loaded via script below from modules. The code also supresses the default context menu for UI purposes. -->
     <script>
-        //suppress default context menu
         document.addEventListener('contextmenu', function(event) {event.preventDefault();});
-
-        // load module as main page
         function loadPage(moduleName) {
             if ((window[moduleName + '_mod']) && false /* false to force reload during testing*/) {
                 document.body.innerHTML = window[moduleName + '_mod'];
-                // Run any additional JavaScript logic in the module if it exists
-                if (window[moduleName + '_init']) {
-                    window[moduleName + '_init'](); 
-                }
+                if (window[moduleName + '_init']) window[moduleName + '_init']();
             } else {
                 const scriptUrl = `modules/${moduleName}.js`;
                 const script = document.createElement('script');
@@ -27,14 +22,8 @@
                 script.type = 'module';
                 script.onload = function() {
                     const content = window[moduleName + '_mod'];
-                    if (content) {
-                        document.body.innerHTML = content;
-                        if (window[moduleName + '_init']) {
-                            window[moduleName + '_init'](); 
-                        }
-                    } else {
-                        document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
-                    }
+                    if (content) document.body.innerHTML = content, window[moduleName + '_init'] && window[moduleName + '_init']();
+                    else document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
                 };
                 script.onerror = function() {document.body.innerHTML = '<p>Error loading module.</p>'; };
                 document.body.appendChild(script);
