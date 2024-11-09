@@ -1,4 +1,4 @@
-window.login_mod = `
+window.login_layout = `
 <style>
 
 </style>
