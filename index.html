@@ -6,26 +6,12 @@
     <title>Custom Forge</title>
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
-    <!-- Firebase SDK v8 (single file) -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 </head>
 <body>
     <script>
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-        });
-        
-        const firebaseConfig = {
-            apiKey: "AIzaSyA3k7RiiqOTWRyNgFdw4Z2-c1Cm106OdLo",
-            authDomain: "custom-nexus.firebaseapp.com",
-            projectId: "custom-nexus",
-            storageBucket: "custom-nexus.firebasestorage.app",
-            messagingSenderId: "469054983781",
-            appId: "1:469054983781:web:ac4f0bc7681074b6edc08c"
-        };
-        firebase.initializeApp(firebaseConfig);
-        
+        //suppress default context menu
+        document.addEventListener('contextmenu', function(event) {event.preventDefault();});
+
         // load module as main page
         function loadPage(moduleName) {
             if ((window[moduleName + '_mod']) && false /* false to force reload during testing*/) {
@@ -38,7 +24,7 @@
                 const scriptUrl = `modules/${moduleName}.js`;
                 const script = document.createElement('script');
                 script.src = scriptUrl;
-                script.type = 'text/javascript';
+                script.type = 'module';
                 script.onload = function() {
                     const content = window[moduleName + '_mod'];
                     if (content) {
