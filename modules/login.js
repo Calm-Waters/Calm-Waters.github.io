@@ -34,6 +34,8 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 		.then((userCredential) => {
 		// Signed in successfully
 		const user = userCredential.user;
+		localStorage.setItem("email", email);
+		localStorage.setItem("password", password);
 		console.log("User signed in:", user);
 	
 		// Redirect to the hub page (or any other page)
