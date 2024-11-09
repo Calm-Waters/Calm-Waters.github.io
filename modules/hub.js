@@ -1,4 +1,5 @@
-window.hub_layout = `
+const moduleName = "login";
+window[moduleName + '_layout'] = `
 <style>
 
 </style>
