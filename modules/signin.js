@@ -1,7 +1,7 @@
-const moduleName = "register";
+const moduleName = "signin";
 window[moduleName + '_layout'] = `
-<div class="scene hbox centercontainer register">
-	<form id="loginForm" onsubmit="register(event)">
+<div class="scene hbox centercontainer signin">
+	<form id="signinForm" onsubmit="signin(event)">
 		<div class="form-group">
 			<input type="text" id="email" name="email" placeholder="email" required>
 		</div>
