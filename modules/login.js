@@ -25,4 +25,20 @@ window.login = function(event) {
 		alert("Please fill in both fields.");
 		return;
 	}
+	try {
+		signInWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+				const user = userCredential.user;		
+				localStorage.setItem("email", email);
+				localStorage.setItem("password", password);
+				loadPage('hub');
+			})
+				.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+			});
+	}	catch (error) {
+		console.error('Error logging in:', error.message);
+		alert("Error: " + error.message);  // Display error message to the user
+	}
 }
