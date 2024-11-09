@@ -38,7 +38,7 @@ window.hub_init = function() {
 	                const userCredential = await firebase.auth().signInWithEmailAndPassword(username, password);
 	                console.log('Login successful:', userCredential.user);
 	                // Redirect to the "hub" page or any other page
-	                loadPage('hub');
+	                loadPage('login');
 	            } catch (error) {
 	                console.error('Error logging in:', error.message);
 	                alert("Error: " + error.message);  // Display error message to the user
