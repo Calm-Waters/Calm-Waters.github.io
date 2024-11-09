@@ -1,4 +1,4 @@
-window.duel_mod = `
+window.duel_layout = `
 <style>
 	.card-cell {
 		flex: 1;
