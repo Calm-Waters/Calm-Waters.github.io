@@ -36,8 +36,8 @@
                 script.onload = function() {
                     const content = window[moduleName + '_layout'];
                     if (content) document.body.innerHTML = content;
-                    if (window[moduleName + '_init']) window[moduleName + '_init']();
                     else document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
+                    if (window[moduleName + '_init']) window[moduleName + '_init']();
                 };
                 script.onerror = function() {document.body.innerHTML = '<p>Error loading module.</p>';};
                 document.body.appendChild(script);
