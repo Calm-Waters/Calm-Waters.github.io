@@ -56,3 +56,20 @@ button {
     display: flex;
     flex-direction: row;
 }
+
+.vscroll {
+	overflow: hidden;
+	overflow-y: auto; 
+	max-height: 100%; 
+	display: flex; 
+	flex-direction: column; 
+	justify-content: flex-start;
+	pointer-events: auto;
+}
+
+.hub button {
+	min-width: 300px;
+	margin: 10px;
+	max-width: 95%;
+	padding: 5px;
+}
