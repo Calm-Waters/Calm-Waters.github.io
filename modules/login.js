@@ -5,6 +5,6 @@ window[moduleName + '_layout'] = `
         <button id="printButton" onclick="printMessage()">Click me</button>
     </div>
 `;
-function printMessage() {
+window.printMessage = function() {
     console.log('Hello from the Example Module!');
 }
