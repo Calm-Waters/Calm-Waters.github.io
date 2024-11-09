@@ -10,7 +10,7 @@ window[moduleName + '_layout'] = `
 			<input type="password" id="password" name="password" placeholder="password" required>
 		</div>
  		<div class="form-group">
-			<input type="password" id="repeat-password" name="repeat password" placeholder="prepeat assword" required>
+			<input type="password" id="repeat-password" name="repeat password" placeholder="repeat password" required>
 		</div>
 		<div class="hbox centercontainer">
 			<button type="submit">Sign In</button>
