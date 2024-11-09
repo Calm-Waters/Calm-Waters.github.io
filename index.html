@@ -27,28 +27,23 @@
         function loadPage(moduleName) {
             if (window[moduleName + '_layout'] && false /* false to force reload during testing*/) {
                 document.body.innerHTML = window[moduleName + '_layout'];
+                if (window[moduleName + '_init']) window[moduleName + '_init']();
             } else {
                 const scriptUrl = `modules/${moduleName}.js?version=${new Date().getTime()}`; // Cache-busting query parameter
                 const script = document.createElement('script');
                 script.src = scriptUrl;
                 script.type = 'module'; // Use ES6 module
-                
                 script.onload = function() {
                     const content = window[moduleName + '_layout'];
-                    if (content) {
-                        document.body.innerHTML = content;
-                    } else {
-                        document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
-                    }
+                    if (content) document.body.innerHTML = content;
+                    if (window[moduleName + '_init']) window[moduleName + '_init']();
+                    else document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
                 };
-            
-                script.onerror = function() {
-                    document.body.innerHTML = '<p>Error loading module.</p>';
-                };
-            
+                script.onerror = function() {document.body.innerHTML = '<p>Error loading module.</p>';};
                 document.body.appendChild(script);
             }
         }
+        
         loadPage('login');
     </script>
 </body>
