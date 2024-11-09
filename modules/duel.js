@@ -14,10 +14,10 @@ window[moduleName + '_layout'] = `
 			Card Details
 		</div>
 
-		<div class="scene vbox" style="width: 100vh;">
+		<div class="scene vbox" style="height: calc(5 / 7 * 98vh); width: calc(5 / 7 * 98vh);">
 			<div class="scene hbox">P2_HA</div>
 
-			<div class="scene hbox playarea" style="height: calc(5 / 7 * 98vh); width: calc(5 / 7 * 98vh);">
+			<div class="scene hbox playarea" style="height: calc(5 / 7 * 98vh);">
 				<div class="scene vbox" style="min-width: calc(1 / 7 * vh);">
 					<div class="card-cell">P2_DE</div>
 					<div class="card-cell">P2_GY</div>
