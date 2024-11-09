@@ -1,6 +1,7 @@
 window.hub_mod = `
 <style>
 
+</style>
 <div class="scene hbox hub">
 	<div class="vbox centercontainer">
 		<div class="vscroll">
