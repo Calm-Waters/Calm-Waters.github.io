@@ -15,6 +15,8 @@ window[moduleName + '_layout'] = `
 	</form>
 </div>
 `;
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+auth = getAuth();
 window.login = function(event) {
 	event.preventDefault();
 	const email = document.getElementById("email").value;
