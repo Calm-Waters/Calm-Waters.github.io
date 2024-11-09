@@ -38,6 +38,7 @@ window.login = function(event) {
 				const user = userCredential.user;		
 				localStorage.setItem("email", email);
 				localStorage.setItem("password", password);
+				console.log('logged in user and stored session credentials');
 				loadPage('hub');
 			})
 				.catch((error) => {
