@@ -6,11 +6,8 @@
     <title>Custom Forge</title>
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Content will be loaded via script below from modules. The code also supresses the default context menu for UI purposes. -->
-    <script>
-        document.addEventListener('contextmenu', function(event) {event.preventDefault();});
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
         const firebaseConfig = {
             apiKey: "AIzaSyA3k7RiiqOTWRyNgFdw4Z2-c1Cm106OdLo",
             authDomain: "custom-nexus.firebaseapp.com",
@@ -20,6 +17,13 @@
             messagingSenderId: "469054983781",
             appId: "1:469054983781:web:ac4f0bc7681074b6edc08c",
         };
+        app = initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <!-- Content will be loaded via script below from modules. The code also supresses the default context menu for UI purposes. -->
+    <script>
+        document.addEventListener('contextmenu', function(event) {event.preventDefault();});
         function loadPage(moduleName) {
             if ((window[moduleName + '_layout']) && false /* false to force reload during testing*/) {
                 document.body.innerHTML = window[moduleName + '_layout'];
