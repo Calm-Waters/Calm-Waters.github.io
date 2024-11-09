@@ -1,7 +1,7 @@
 const moduleName = "login";
 window[moduleName + '_layout'] = `
 <div class="scene hbox centercontainer login">
-	<form id="loginForm" onsubmit="printMessage()">
+	<form id="loginForm" onsubmit="login(event)">
 		<div class="form-group">
 			<input type="text" id="email" name="email" placeholder="email" required>
 		</div>
@@ -15,6 +15,12 @@ window[moduleName + '_layout'] = `
 	</form>
 </div>
 `;
-window.printMessage = function() {
-    console.log('Hello from the Example Module!');
+window.login = function(event) {
+	event.preventDefault();
+	const email = document.getElementById("email").value;
+	const password = document.getElementById("password").value;
+	if (!email || !password) {
+		alert("Please fill in both fields.");
+		return;
+	}
 }
