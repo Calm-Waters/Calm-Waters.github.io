@@ -10,8 +10,8 @@ window[moduleName + '_layout'] = `
 		</div>
 		<div class="hbox centercontainer">
 			<button type="submit">Log In</button>
-   			<button onclick="loadPage('signin')">Sign In</button>
-			<button onclick="loadPage('hub')">Skip</button>
+   			<button type="button" onclick="loadPage('signin')">Sign In</button>
+			<button type="button" onclick="loadPage('hub')">Skip</button>
 		</div>
 	</form>
 </div>
