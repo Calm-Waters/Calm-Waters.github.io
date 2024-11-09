@@ -13,6 +13,7 @@ window.login_layout = `
 		<div class="hbox centercontainer">
 			<button type="submit">Log In</button>
 			<button onclick="loadPage('hub')">Skip</button>
+   			<button onclick="tesfunct()">Test</button>
 		</div>
 	</form>
 </div>
@@ -23,29 +24,6 @@ if (savedEmail) { document.getElementById("email").value = savedEmail;}
 if (savedPassword) { document.getElementById("password").value = savedPassword;}
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 const auth = getAuth();
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-	event.preventDefault(); // Prevent form from refreshing the page
-	
-	const email = document.getElementById("email").value;
-	const password = document.getElementById("password").value;
-	
-	// Sign in with Firebase
-	signInWithEmailAndPassword(auth, email, password)
-		.then((userCredential) => {
-		// Signed in successfully
-		const user = userCredential.user;
-		localStorage.setItem("email", email);
-		localStorage.setItem("password", password);
-		console.log("User signed in:", user);
-	
-		// Redirect to the hub page (or any other page)
-		loadPage('hub');
-	})
-	.catch((error) => {
-		// Handle errors (e.g., invalid email or password)
-		const errorCode = error.code;
-		const errorMessage = error.message;
-		console.error("Error signing in:", errorMessage);
-		alert("Error: " + errorMessage);
-	});
-});
+function testfunct(){
+	console.log('here's hoping this works');
+}
