@@ -25,4 +25,4 @@ greetUser('Alice');
 document.getElementById("loginForm").addEventListener("submit", function(event) {
 	event.preventDefault();
 	greetUser('Josh');
-}
+});
