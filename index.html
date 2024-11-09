@@ -25,19 +25,27 @@
     <script>
         document.addEventListener('contextmenu', function(event) {event.preventDefault();});
         function loadPage(moduleName) {
-            if ((window[moduleName + '_layout']) && false /* false to force reload during testing*/) {
+            if (window[moduleName + '_layout'] && false /* false to force reload during testing*/) {
                 document.body.innerHTML = window[moduleName + '_layout'];
             } else {
-                const scriptUrl = `modules/${moduleName}.js?version=${new Date().getTime()}`; // Append timestamp to version this, remove once you're done making frequent changes
+                const scriptUrl = `modules/${moduleName}.js?version=${new Date().getTime()}`; // Cache-busting query parameter
                 const script = document.createElement('script');
                 script.src = scriptUrl;
-                script.type = 'module';
+                script.type = 'module'; // Use ES6 module
+                
                 script.onload = function() {
                     const content = window[moduleName + '_layout'];
-                    if (content) document.body.innerHTML = content;
-                    else document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
+                    if (content) {
+                        document.body.innerHTML = content;
+                    } else {
+                        document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
+                    }
                 };
-                script.onerror = function() {document.body.innerHTML = '<p>Error loading module.</p>'; };
+            
+                script.onerror = function() {
+                    document.body.innerHTML = '<p>Error loading module.</p>';
+                };
+            
                 document.body.appendChild(script);
             }
         }
