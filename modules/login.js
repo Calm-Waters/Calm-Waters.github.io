@@ -22,7 +22,7 @@ const savedPassword = localStorage.getItem("password");
 if (savedEmail) { document.getElementById("email").value = savedEmail;}
 if (savedPassword) { document.getElementById("password").value = savedPassword;}
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-auth = getAuth();
+const auth = getAuth();
 function login(event) {
 	event.preventDefault();
     const email = document.getElementById("email").value;
