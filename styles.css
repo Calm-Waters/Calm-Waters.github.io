@@ -21,14 +21,6 @@ body {
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-    /*border: 1px solid red; /* for test purposes */
-    /*pointer-events: none; /* disable pointerevents by default, re-enable selectively */
-}
-
-button {
-    max-width: 300px;
-    width: 95%;
-    pointer-events: auto;
 }
 
 .scene {
@@ -39,7 +31,6 @@ button {
     max-width: 100%;
     /*border: 1px solid red; /* disable this once debugging is over*/
     background: rgba(211, 211, 211, 0.2);
-    pointer-events: auto;
 }
 
 .centercontainer {
@@ -66,12 +57,4 @@ button {
 	display: flex; 
 	flex-direction: column; 
 	justify-content: flex-start;
-	pointer-events: auto;
-}
-
-.hub button {
-	min-width: 300px;
-	margin: 10px;
-	max-width: 95%;
-	padding: 5px;
 }
