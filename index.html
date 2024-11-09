@@ -21,15 +21,15 @@
             appId: "1:469054983781:web:ac4f0bc7681074b6edc08c",
         };
         function loadPage(moduleName) {
-            if ((window[moduleName + '_mod']) && false /* false to force reload during testing*/) {
-                document.body.innerHTML = window[moduleName + '_mod'];
+            if ((window[moduleName + '_layout']) && false /* false to force reload during testing*/) {
+                document.body.innerHTML = window[moduleName + '_layout'];
             } else {
                 const scriptUrl = `modules/${moduleName}.js?version=${new Date().getTime()}`; // Append timestamp to version this, remove once you're done making frequent changes
                 const script = document.createElement('script');
                 script.src = scriptUrl;
                 script.type = 'module';
                 script.onload = function() {
-                    const content = window[moduleName + '_mod'];
+                    const content = window[moduleName + '_layout'];
                     if (content) document.body.innerHTML = content;
                     else document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
                 };
