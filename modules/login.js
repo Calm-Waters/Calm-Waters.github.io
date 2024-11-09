@@ -34,7 +34,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 		return;
 	}
 	try {
-	    signInWithEmailAndPassword(auth, email, password)
+		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				const user = userCredential.user;		
 				localStorage.setItem("email", email);
@@ -46,7 +46,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 				const errorMessage = error.message;
 			});
 	}	catch (error) {
-        console.error('Error logging in:', error.message);
-        alert("Error: " + error.message);  // Display error message to the user
-    }
+	console.error('Error logging in:', error.message);
+		alert("Error: " + error.message);  // Display error message to the user
+	}
 }
