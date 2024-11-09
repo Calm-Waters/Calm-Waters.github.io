@@ -25,18 +25,20 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
 const auth = getAuth();
 function login(event) {
 	event.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    if (!email || !password) {
-	    alert("Please fill in both fields.");
-	    return;
+	console.log('hey');
+	return;
+	const email = document.getElementById("email").value;
+	const password = document.getElementById("password").value;
+	if (!email || !password) {
+		alert("Please fill in both fields.");
+		return;
 	}
 	try {
 	    signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				const user = userCredential.user;		
 				localStorage.setItem("email", email);
-	            localStorage.setItem("password", password);
+				localStorage.setItem("password", password);
 				loadPage('hub');
 			})
 				.catch((error) => {
