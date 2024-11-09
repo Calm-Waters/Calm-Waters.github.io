@@ -23,16 +23,14 @@
         function loadPage(moduleName) {
             if ((window[moduleName + '_mod']) && false /* false to force reload during testing*/) {
                 document.body.innerHTML = window[moduleName + '_mod'];
-                if (window[moduleName + '_init']) window[moduleName + '_init']();
             } else {
-                //const scriptUrl = `modules/${moduleName}.js`;
-                const scriptUrl = `modules/${moduleName}.js?version=${new Date().getTime()}`; // Append timestamp
+                const scriptUrl = `modules/${moduleName}.js?version=${new Date().getTime()}`; // Append timestamp to version this, remove once you're done making frequent changes
                 const script = document.createElement('script');
                 script.src = scriptUrl;
                 script.type = 'module';
                 script.onload = function() {
                     const content = window[moduleName + '_mod'];
-                    if (content) document.body.innerHTML = content, window[moduleName + '_init'] && window[moduleName + '_init']();
+                    if (content) document.body.innerHTML = content;
                     else document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
                 };
                 script.onerror = function() {document.body.innerHTML = '<p>Error loading module.</p>'; };
