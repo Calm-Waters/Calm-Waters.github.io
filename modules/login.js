@@ -13,7 +13,7 @@ window.login_layout = `
 		<div class="hbox centercontainer">
 			<button type="submit">Log In</button>
 			<button onclick="loadPage('hub')">Skip</button>
-   			<button onclick="tesfunct()">Test</button>
+   			<button onclick="greetUser('Bob');">Test</button>
 		</div>
 	</form>
 </div>
