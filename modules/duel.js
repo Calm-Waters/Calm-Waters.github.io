@@ -6,10 +6,11 @@ window[moduleName + '_layout'] = `
 		border: 1px solid black;
 	}
 </style>
-<button onclick="loadPage('hub')">Return to HUB</button>
-<button onclick="loadPage('duel')">Reload</button>
 <div class="scene hbox centercontainer login">
-	<div class="scene hbox"></div>
+	<div class="scene hbox">
+ 		<button onclick="loadPage('hub')">Return to HUB</button>
+		<button onclick="loadPage('duel')">Reload</button>
+ 	</div>
 	<!-- play area -->
 	<div class="scene vbox" style="flex: 0; aspect-ratio: 1 / 1; max-width: calc(5 / 7 * 100vw); max-height: calc(5 / 7 * 100vw);">
 		<div class=" hbox hand"></div>
