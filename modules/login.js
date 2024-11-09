@@ -1,25 +1,11 @@
-window.login_layout = `
-<style>
-
-</style>
-<div class="scene hbox centercontainer login">
-	<form id="loginForm"">
-		<div class="form-group">
-			<input type="text" id="email" name="email" placeholder="email" required>
-		</div>
-		<div class="form-group">
-			<input type="password" id="password" name="password" placeholder="password" required>
-		</div>
-		<div class="hbox centercontainer">
-			<button type="submit">Log In</button>
-			<button onclick="loadPage('hub')">Skip</button>
-		</div>
-	</form>
-</div>
+const moduleName = "login";
+window[moduleName + '_layout'] = `
+    <div>
+        <h1>Welcome to the Example Module</h1>
+        <button id="printButton">Click me to print a message</button>
+    </div>
 `;
-document.addEventListener("DOMContentLoaded", function() {
-	document.getElementById("loginForm").addEventListener("submit", function(event) {
-		event.preventDefault();
-		console.log('test');
-	});
-});
+function printMessage() {
+    console.log('Hello from the Example Module!');
+}
+document.getElementById('printButton')?.addEventListener('click', printMessage); 
