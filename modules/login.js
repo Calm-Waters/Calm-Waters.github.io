@@ -19,6 +19,7 @@ window.login_mod = `
 	</form>
 </div>
 `;
+console.log('testing if this loads properly');
 window.hub_init = function() {
 	document.addEventListener('DOMContentLoaded', function () {
 	    const loginForm = document.getElementById('loginForm');
