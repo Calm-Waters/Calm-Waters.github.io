@@ -6,78 +6,69 @@ window[moduleName + '_layout'] = `
 		border: 1px solid black;
 	}
 </style>
-<div class="scene duel">
-	<button onclick="loadPage('hub')">Return to HUB</button>
-	<button onclick="loadPage('duel')">Reload</button>
-	<div class="hbox">
-		<div class="scene vbox">
-			Card Details
-		</div>
-
-		<div class="scene vbox" style="height: calc(5 / 7 * 98vh); width: calc(5 / 7 * 98vh);">
-			<div class="scene hbox">P2_HA</div>
-
-			<div class="scene hbox playarea" style="height: calc(5 / 7 * 98vh);">
-				<div class="scene vbox" style="min-width: calc(1 / 7 * 98vh);">
-					<div class="card-cell">P2_DE</div>
-					<div class="card-cell">P2_GY</div>
-					<div class="card-cell">P2_BA</div>
-					<div class="card-cell">P1_FZ</div>
-					<div class="card-cell">P1_ED</div>
+<button onclick="loadPage('hub')">Return to HUB</button>
+<button onclick="loadPage('duel')">Reload</button>
+<div class="scene hbox centercontainer login">
+	<div class="scene hbox"></div>
+	<!-- play area -->
+	<div class="scene vbox" style="flex: 0; aspect-ratio: 1 / 1; max-width: calc(5 / 7 * 100vw); max-height: calc(5 / 7 * 100vw);">
+		<div class=" hbox hand"></div>
+		<div class="hbox field" style="flex: 5;">
+			<div class="vbox">
+				<div class="card-cell"></div>
+				<div class="card-cell"></div>
+				<div class="card-cell"></div>
+				<div class="card-cell"></div>
+				<div class="card-cell"></div>
+			</div>
+			<div class="vbox" style="flex: 5;">
+				<div class="hbox">
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
 				</div>
-				<div class="scene vbox" style="min-width: calc(5 / 7 * 98vh);">
-					<div class="scene hbox">
-						<div class="card-cell">P2_S1</div>
-						<div class="card-cell">P2_S2</div>
-						<div class="card-cell">P2_S3</div>
-						<div class="card-cell">P2_S4</div>
-						<div class="card-cell">P2_S5</div>
-					</div>
-					<div class="scene hbox">
-						<div class="card-cell">P2_M1</div>
-						<div class="card-cell">P2_M2</div>
-						<div class="card-cell">P2_M3</div>
-						<div class="card-cell">P2_M4</div>
-						<div class="card-cell">P2_M5</div>
-					</div>
-					<div class="scene hbox">
-						<div class="card-cell"></div>
-						<div class="card-cell">P0_E2</div>
-						<div class="card-cell"></div>
-						<div class="card-cell">P0_E4</div>
-						<div class="card-cell"></div>
-					</div>
-					<div class="scene hbox">
-						<div class="card-cell">P1_M1</div>
-						<div class="card-cell">P1_M2</div>
-						<div class="card-cell">P1_M3</div>
-						<div class="card-cell">P1_M4</div>
-						<div class="card-cell">P1_M5</div>
-					</div>
-					<div class="scene hbox">
-						<div class="card-cell">P1_S1</div>
-						<div class="card-cell">P1_S2</div>
-						<div class="card-cell">P1_S3</div>
-						<div class="card-cell">P1_S4</div>
-						<div class="card-cell">P1_S5</div>
-					</div>
+				<div class="hbox">
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
 				</div>
-				<div class="scene vbox" style="min-width: calc(1 / 7 * 98vh);">
-					<div class="card-cell">P2_ED</div>
-					<div class="card-cell">P2_FZ</div>
-					<div class="card-cell">P1_BA</div>
-					<div class="card-cell">P1_GY</div>
-					<div class="card-cell">P1_DE</div>
+				<div class="hbox">
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+				</div>
+				<div class="hbox">
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+				</div>
+				<div class="hbox">
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
+					<div class="card-cell"></div>
 				</div>
 			</div>
-
-			<div class="scene hbox">P1_HA</div>
+			<div class="vbox"">
+				<div class="card-cell"></div>
+				<div class="card-cell"></div>
+				<div class="card-cell"></div>
+				<div class="card-cell"></div>
+				<div class="card-cell"></div>
+			</div>
 		</div>
-
-		<div class="scene vbox">
-			Chat / Card selection / Other (opponent's LP)
-		</div>
+		<div class=" hbox hand"></div>
 	</div>
+	<div class="scene hbox"></div>
 </div>
 `;
 window[moduleName + '_init'] = function() {
