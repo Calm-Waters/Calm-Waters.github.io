@@ -13,16 +13,13 @@ window.login_layout = `
 		<div class="hbox centercontainer">
 			<button type="submit">Log In</button>
 			<button onclick="loadPage('hub')">Skip</button>
-   			<button onclick="greetUser('Bob');">Test</button>
 		</div>
 	</form>
 </div>
 `;
-function greetUser(name) {
-	console.log(`Hello, ${name}!`);
-}
-greetUser('Alice');
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-	event.preventDefault();
-	greetUser('Josh');
+document.addEventListener("DOMContentLoaded", function() {
+	document.getElementById("loginForm").addEventListener("submit", function(event) {
+		event.preventDefault();
+		console.log('test');
+	});
 });
