@@ -81,10 +81,10 @@ window.duel_layout = `
 `;
 // Define an initialization function for additional JavaScript logic
 document.querySelectorAll('.card-cell').forEach(cell => {
-cell.addEventListener('mouseenter', () => {
-    cell.textContent = 'Seen.';
-});
-cell.addEventListener('mouseleave', () => {
-    cell.textContent = ''; // Reset text on hover out
-});
+	cell.addEventListener('mouseenter', () => {
+		cell.textContent = 'Seen.';
+	});
+	cell.addEventListener('mouseleave', () => {
+		cell.textContent = ''; // Reset text on hover out
+	});
 });
