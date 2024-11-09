@@ -23,7 +23,7 @@ if (savedEmail) { document.getElementById("email").value = savedEmail;}
 if (savedPassword) { document.getElementById("password").value = savedPassword;}
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 const auth = getAuth();
-function login(event) {
+document.getElementById("loginForm").addEventListener("submit", function(event) {
 	event.preventDefault();
 	console.log('hey');
 	return;
