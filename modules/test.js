@@ -1,4 +1,5 @@
-window.test_layout = `
+const moduleName = "test";
+window[moduleName + '_layout'] = `
 <style>
 
 </style>
