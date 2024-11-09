@@ -11,6 +11,15 @@
     <!-- Content will be loaded via script below from modules. The code also supresses the default context menu for UI purposes. -->
     <script>
         document.addEventListener('contextmenu', function(event) {event.preventDefault();});
+        const firebaseConfig = {
+            apiKey: "AIzaSyA3k7RiiqOTWRyNgFdw4Z2-c1Cm106OdLo",
+            authDomain: "custom-nexus.firebaseapp.com",
+            databaseURL: "https://custom-nexus-default-rtdb.firebaseio.com",
+            projectId: "custom-nexus",
+            storageBucket: "custom-nexus.firebasestorage.app",
+            messagingSenderId: "469054983781",
+            appId: "1:469054983781:web:ac4f0bc7681074b6edc08c",
+        };
         function loadPage(moduleName) {
             if ((window[moduleName + '_mod']) && false /* false to force reload during testing*/) {
                 document.body.innerHTML = window[moduleName + '_mod'];
