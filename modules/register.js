@@ -8,9 +8,12 @@ window[moduleName + '_layout'] = `
 		<div class="form-group">
 			<input type="password" id="password" name="password" placeholder="password" required>
 		</div>
+  		<div class="form-group">
+			<input type="password" id="repeat-password" name="repeat password" placeholder="repeat password" required>
+		</div>
 		<div class="hbox centercontainer">
-			<button type="submit">Log In</button>
-			<button onclick="loadPage('hub')">Skip</button>
+			<button type="submit">Register</button>
+			<button onclick="loadPage('login')">Return to Login</button>
 		</div>
 	</form>
 </div>
