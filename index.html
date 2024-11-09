@@ -25,7 +25,8 @@
                 document.body.innerHTML = window[moduleName + '_mod'];
                 if (window[moduleName + '_init']) window[moduleName + '_init']();
             } else {
-                const scriptUrl = `modules/${moduleName}.js`;
+                //const scriptUrl = `modules/${moduleName}.js`;
+                const scriptUrl = `modules/${moduleName}.js?version=${new Date().getTime()}`; // Append timestamp
                 const script = document.createElement('script');
                 script.src = scriptUrl;
                 script.type = 'module';
