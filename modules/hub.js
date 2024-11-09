@@ -1,4 +1,4 @@
-window.hub_mod = `
+window.hub_layout = `
 <style>
 
 </style>
