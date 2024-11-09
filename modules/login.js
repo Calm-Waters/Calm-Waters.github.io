@@ -15,6 +15,12 @@ window[moduleName + '_layout'] = `
 	</form>
 </div>
 `;
+window[moduleName + '_init'] = function() {
+	const savedEmail = localStorage.getItem("email");
+	const savedPassword = localStorage.getItem("password");
+	if (savedEmail) { document.getElementById("email").value = savedEmail;}
+	if (savedPassword) { document.getElementById("password").value = savedPassword;}
+}
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 const auth = getAuth();
 window.login = function(event) {
