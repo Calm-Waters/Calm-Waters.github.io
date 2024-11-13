@@ -1,51 +1,48 @@
-/* only for the real default settings, handle all else on a per page basis */
-
 html, body {
-    height: 100%;  /* Ensures that the body and html take full height */
-    margin: 0;  /* Remove default margin */
-    padding: 0;  /* Remove default padding */
-    overflow: hidden;  /* Hides the scrollbar */
+	height: 100%;  /* Ensures that the body and html take full height */
+	margin: 0;  /* Remove default margin */
+	padding: 0;  /* Remove default padding */
+	overflow: hidden;  /* Hides the scrollbar */
 }
 
 body {
-    background-image: url('images/bg.jpg');
-    background-size: cover;  /* This will make the image cover the entire viewport */
-    background-position: center center; /* Centers the image */
-    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+	background-image: url('images/bg.jpg');
+	background-size: cover;  /* This will make the image cover the entire viewport */
+	background-position: center center; /* Centers the image */
+	background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+	height: 100vh;
+	margin: 0;
+	padding: 0;
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+	flex: 1; /*is this cursed? Yes. Do I care? Not until it causes problems I notice. Just put something inside a non-flex display div and this should have no real effects on it.*/
 }
 
 .scene {
-    flex: 1;
-    height: 100vh;
-    width: 100vw;
-    max-height: 100%;
-    max-width: 100%;
-    /*border: 1px solid red; /* disable this once debugging is over*/
-    background: rgba(211, 211, 211, 0.2);
+	height: 100vh;
+	width: 100vw;
+	max-height: 100%;
+	max-width: 100%;
+	border: 1px solid red; /* disable this once debugging is over*/
+	background: rgba(211, 211, 211, 0.2); /* disable this once debugging is over */
+	pointer-events: auto;
 }
 
 .centercontainer {
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+	justify-content: center;
 }
 
 .vbox {
-	flex: 1;
 	display: flex;
 	flex-direction: column;
 }
 
 .hbox {
-	flex: 1;
 	display: flex;
 	flex-direction: row;
 }
@@ -57,4 +54,5 @@ body {
 	display: flex; 
 	flex-direction: column; 
 	justify-content: flex-start;
+	pointer-events: auto;
 }
