@@ -21,29 +21,55 @@
     </script>
 </head>
 <body>
-    <!-- Content will be loaded via script below from modules. The code also supresses the default context menu for UI purposes. -->
-    <script>
-        document.addEventListener('contextmenu', function(event) {event.preventDefault();});
-        function loadPage(moduleName) {
-            if (window[moduleName + '_layout'] && false /* false to force reload during testing*/) {
-                document.body.innerHTML = window[moduleName + '_layout'];
-                if (window[moduleName + '_init']) window[moduleName + '_init']();
-            } else {
-                const scriptUrl = `modules/${moduleName}.js?version=${new Date().getTime()}`; // Cache-busting query parameter
-                const script = document.createElement('script');
-                script.src = scriptUrl;
-                script.type = 'module'; // Use ES6 module
-                script.onload = function() {
-                    const content = window[moduleName + '_layout'];
-                    if (content) document.body.innerHTML = content;
-                    else document.body.innerHTML = '<p>Error: Module content is undefined.</p>';
-                    if (window[moduleName + '_init']) window[moduleName + '_init']();
-                };
-                script.onerror = function() {document.body.innerHTML = '<p>Error loading module.</p>';};
-                document.body.appendChild(script);
-            }
-        }      
-        loadPage('login');
-    </script>
+	<div id="fpsDisplay" style="position: fixed; top: 100%; left: 100%; transform: translate(-110%, -110%); background-color: rgba(0, 0, 0, 0.7); color: white; white-space: pre; pointer-events: none;">FPS: 0</div>
+	<div class="root_scene" />
+	<!-- Page Content is loaded via script below. -->
+	<script>
+		//suppress default rmb/context menu
+		document.addEventListener('contextmenu', function(event) {event.preventDefault();});
+		//replaces the innerHTML of the specified element with the provided scene (layout), and adds/runs relevant scripts for that scene
+		/* REMEMBER TO REMOVE THE && false */
+		function loadScene(scene,target='root_scene') {
+			if (window[scene + '_layout'] && false) { 
+				document.querySelectorAll('.' + target).forEach(instance => {instance.innerHTML = window[scene + '_layout']})
+				if (window[scene + '_init']) window[scene + '_init'](); 
+			} else {
+				if (document.getElementById(scene + '_script')) document.getElementById(scene + '_script').remove();
+				const script = document.createElement('script');
+				script.src = `scenes/${scene}.js`;
+				script.onload = function() {
+					document.querySelectorAll('.' + target).forEach(instance => {instance.innerHTML = window[scene + '_layout']});
+					if (window[scene + '_init']) window[scene + '_init'](); 
+				}
+				script.id = scene + '_script';
+				document.body.appendChild(script);
+			}
+		}
+		loadScene('login');
+	</script>
+	<!-- this handles the fps / time display -->
+	<script>
+		let lastTime = 0;
+		let fps = 0;
+		let frameCount = 0;
+		let fpsDisplay = document.getElementById("fpsDisplay");
+		function calculateFPS(timestamp) {
+			if (lastTime) {
+				const deltaTime = timestamp - lastTime;
+				frameCount++;
+				if (deltaTime >= 1000) {
+					fps = Math.min(frameCount / (deltaTime / 1000), 120); // Cap at 120 FPS
+					frameCount = 0;
+					lastTime = timestamp;
+				}
+			} else {
+				lastTime = timestamp;
+			}
+			const currentTime = new Date().toLocaleTimeString();
+			fpsDisplay.textContent = `${currentTime}\nFPS: ${fps.toFixed(1)}`;
+			requestAnimationFrame(calculateFPS);
+		}
+		requestAnimationFrame(calculateFPS);
+	</script>
 </body>
 </html>
