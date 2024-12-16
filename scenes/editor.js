@@ -50,11 +50,23 @@ function handle_edit({ target: { id, value } }) {
 
 function setSelectOptions(selectId, options) {
 	const selectElement = document.getElementById(selectId);
-	if (!selectElement || selectElement.tagName !== 'SELECT') {
-		return console.warn(`Element with id "${selectId}" is not a select element or not found.`);
+	// Handle case when the element is not found or is not a select element
+	if (!selectElement || (selectId !== 'ability' && selectElement.tagName !== 'SELECT')) {
+		return console.warn(`Element with id "${selectId}" is not a valid target or not found.`);
 	}
-	selectElement.innerHTML = `<option hidden selected value=""></option>` +
-		options.map(option => `<option value="${option}">${option}</option>`).join('');
+	// If the selectId is "ability", create a custom dropdown with checkboxes
+	if (selectId === 'ability') {
+		selectElement.innerHTML = options
+			.map(option => `
+				<div class="dropdown-item">
+					<input type="checkbox" id="${option}" value="${option}">
+					<label for="${option}">${option}</label>
+				</div>
+			`).join('');
+	} else {
+		selectElement.innerHTML = `<option hidden selected value=""></option>` +
+			options.map(option => `<option value="${option}">${option}</option>`).join('');
+	}
 }
 
 function populateSelectElements(data) {
