@@ -11,7 +11,7 @@ editor_layout = `
 		Category: <select 	name="category" 	id="category" 	onchange="console.log('hi')" disabled></select><br/>
 		Type: <select 		name="type" 		id="type" 	onchange="console.log('hi')" disabled></select><br/>
 		Ability: <select 	name="ability" 		id="ability" 	onchange="verifiedChange(this)" 
-  										onfocus="verifiedChange(this)"
+  										onfocus="verifiedFocus(this)"
   										onclick="toggleOption(this)" disabled></select><br/>
 		Attribute: <select 	name="attribute" 	id="attribute"	onchange="console.log('hi')" disabled></select><br/>
 		<button type="submit" onclick="event.preventDefault()">Upload</button>
@@ -75,6 +75,7 @@ function populateSelectWithDelay(data, attempts = 10) {
 }
 
 function toggleOption(selectElement){
+	console.log('potential toggle...');
 	//attempt to only toggle on actual selection
 	if (selectElement.getAttribute('data-blurred') === 'true') {
 		selectElement.setAttribute('data-open', 'false');
@@ -96,4 +97,9 @@ function toggleOption(selectElement){
 function verifiedChange(selectElement){
 	//call after a change to synchronize open/not open state of the select element for the toggleOption function
 	selectElement.setAttribute('data-open', 'false');
+}
+function verifiedFocus(selectElement){
+	//call after a change to synchronize open/not open state of the select element for the toggleOption function
+	console.log('focused');
+	selectElement.setAttribute('data-open', 'true');
 }
