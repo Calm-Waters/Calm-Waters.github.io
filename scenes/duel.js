@@ -15,55 +15,55 @@ duel_layout = `
 		<div class=" hbox hand"></div>
 		<div class="hbox field" style="flex: 5;">
 			<div class="vbox">
-				<div class="card-cell"></div>
-				<div class="card-cell"></div>
-				<div class="card-cell"></div>
-				<div class="card-cell"></div>
-				<div class="card-cell"></div>
+				<div class="card-cell" id="p2_DE"></div>
+				<div class="card-cell" id="p2_GY"></div>
+				<div class="card-cell" id="p2_BA"></div>
+				<div class="card-cell" id="p1_FZ"></div>
+				<div class="card-cell" id="p1_ED"></div>
 			</div>
 			<div class="vbox" style="flex: 5;">
 				<div class="hbox">
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
+					<div class="card-cell" id="p2_S1"></div>
+					<div class="card-cell" id="p2_S2"></div>
+					<div class="card-cell" id="p2_S3"></div>
+					<div class="card-cell" id="p2_S4"></div>
+					<div class="card-cell" id="p2_S5"></div>
 				</div>
 				<div class="hbox">
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
+					<div class="card-cell" id="p2_M1"></div>
+					<div class="card-cell" id="p2_M2"></div>
+					<div class="card-cell" id="p2_M3"></div>
+					<div class="card-cell" id="p2_M4"></div>
+					<div class="card-cell" id="p2_M5"></div>
 				</div>
 				<div class="hbox">
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
+					<div class="card-cell" id="p0_V1"></div>
+					<div class="card-cell" id="p0_E1"></div>
+					<div class="card-cell" id="p0_V3"></div>
+					<div class="card-cell" id="p0_E4"></div>
+					<div class="card-cell" id="p0_V5"></div>
 				</div>
 				<div class="hbox">
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
+					<div class="card-cell" id="p1_M1"></div>
+					<div class="card-cell" id="p1_M2"></div>
+					<div class="card-cell" id="p1_M3"></div>
+					<div class="card-cell" id="p1_M4"></div>
+					<div class="card-cell" id="p1_M5"></div>
 				</div>
 				<div class="hbox">
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
-					<div class="card-cell"></div>
+					<div class="card-cell" id="p1_S1"></div>
+					<div class="card-cell" id="p1_S2"></div>
+					<div class="card-cell" id="p1_S3"></div>
+					<div class="card-cell" id="p1_S4"></div>
+					<div class="card-cell" id="p1_S5"></div>
 				</div>
 			</div>
 			<div class="vbox"">
-				<div class="card-cell"></div>
-				<div class="card-cell"></div>
-				<div class="card-cell"></div>
-				<div class="card-cell"></div>
-				<div class="card-cell"></div>
+				<div class="card-cell" id="p2_ED"></div>
+				<div class="card-cell" id="p2_FZ"></div>
+				<div class="card-cell" id="p1_BA"></div>
+				<div class="card-cell" id="p1_GY"></div>
+				<div class="card-cell" id="p1_DE"></div>
 			</div>
 		</div>
 		<div class=" hbox hand"></div>
@@ -75,7 +75,8 @@ duel_init = function() {
 	console.log("hey");
 	document.querySelectorAll('.card-cell').forEach(cell => {
 		cell.addEventListener('mouseenter', () => {
-			cell.textContent = 'Seen.';
+			//cell.textContent = 'Seen.';
+			cell.textContent = cell.id;
 		});
 		cell.addEventListener('mouseleave', () => {
 			cell.textContent = ''; // Reset text on hover out
@@ -83,3 +84,11 @@ duel_init = function() {
 	});
 };
 duel_init();
+//decks are an array of integers, with each integer uniquely identifying a specific card's template. 
+//p1 is always you, as far as code is concerned
+
+p1 = {};
+p1.deck_main = [];
+p1.deck_xtra = [];
+p1.deck_side = [];
+
