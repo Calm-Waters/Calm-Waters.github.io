@@ -79,6 +79,7 @@ function toggleOption(selectElement){
 	if (selectElement.getAttribute('data-blurred') === 'true') {
 		selectElement.setAttribute('data-open', 'false');
 		selectElement.setAttribute('data-blurred', 'false');
+		console.log('opened while blurry');
 	}
 	const isOpen = selectElement.getAttribute('data-open') === 'true';
 	selectElement.setAttribute('data-open', isOpen ? 'false' : 'true');
