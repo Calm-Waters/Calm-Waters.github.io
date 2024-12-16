@@ -58,26 +58,8 @@ function setSelectOptions(selectId, options) {
 	if (!selectElement || (selectId !== 'ability' && selectElement.tagName !== 'SELECT')) {
 		return console.warn(`Element with id "${selectId}" is not a valid target or not found.`);
 	}
-	// If the selectId is "ability", create a custom dropdown with checkboxes
-	if (selectId === 'abilit') {
-		selectElement.innerHTML = options
-			.map(option => `
-				<div class="dropdown-item">
-					<input type="checkbox" id="${option}" value="${option}">
-					<label for="${option}">${option}</label>
-				</div>
-			`).join('');
-	} else {
-		selectElement.innerHTML = `<option hidden selected value=""></option>` +
-			options.map(option => `<option value="${option}">${option}</option>`).join('');
-	}
-	selectElement.innerHTML = options
-		.map(option => `
-			<div class="dropdown-item">
-				<input type="checkbox" id="${option}" value="${option}">
-				<label for="${option}">${option}</label>
-			</div>
-		`).join('');
+	selectElement.innerHTML = `<option hidden selected value=""></option>` +
+		options.map(option => `<option value="${option}">${option}</option>`).join('');
 }
 
 function populateSelectElements(data) {
