@@ -14,7 +14,8 @@ editor_layout = `
   										onfocus="this.setAttribute('data-open', 'true');"
   										onclick="toggleOption(this)" disabled></select><br/>
 		Attribute: <select 	name="attribute" 	id="attribute"	onchange="console.log('hi')" disabled></select><br/>
-		<button type="submit" onclick="event.preventDefault()">Upload</button>
+		
+		<button type="submit" onclick="attemptUpload()">Upload</button>
 	</form>
 </div>
 `
@@ -75,13 +76,6 @@ function populateSelectWithDelay(data, attempts = 10) {
 }
 
 function toggleOption(selectElement){
-	console.log('potential toggle...');
-	//attempt to only toggle on actual selection
-	if (selectElement.getAttribute('data-blurred') === 'true') {
-		selectElement.setAttribute('data-open', 'false');
-		selectElement.setAttribute('data-blurred', 'false');
-		console.log('opened while blurry');
-	}
 	const isOpen = selectElement.getAttribute('data-open') === 'true';
 	selectElement.setAttribute('data-open', isOpen ? 'false' : 'true');
 	if (isOpen) return;
@@ -93,4 +87,8 @@ function toggleOption(selectElement){
 	//(de-)bold chosen option
 	if (selectedOption.style.fontWeight === 'bold') selectedOption.style.fontWeight = 'normal';
 	else selectedOption.style.fontWeight = 'bold';
+}
+
+function attemptUpload(){
+	console.log('registered attempt to upload card');
 }
