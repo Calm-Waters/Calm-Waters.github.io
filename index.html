@@ -36,7 +36,7 @@
 			} else {
 				if (document.getElementById(scene + '_script')) document.getElementById(scene + '_script').remove();
 				const script = document.createElement('script');
-				script.src = scenes/${scene}.js;
+				script.src = `scenes/${scene}.js`;
 				script.onload = function() {
 					document.querySelectorAll('.' + target).forEach(instance => {instance.innerHTML = window[scene + '_layout']});
 					if (window[scene + '_init']) window[scene + '_init'](); 
