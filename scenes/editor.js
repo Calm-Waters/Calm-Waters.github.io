@@ -10,8 +10,8 @@ editor_layout = `
 		Card Type: <select 	name="card_base" 	id="card_base" 	onchange="handle_edit(event)"></select><br/>
 		Category: <select 	name="category" 	id="category" 	onchange="console.log('hi')" disabled></select><br/>
 		Type: <select 		name="type" 		id="type" 	onchange="console.log('hi')" disabled></select><br/>
-		Ability: <select 	name="ability" 		id="ability" 	onchange="verifiedChange(this)" 
-  										onfocus="verifiedFocus(this)"
+		Ability: <select 	name="ability" 		id="ability" 	onchange="this.setAttribute('data-open', 'false')" 
+  										onfocus="this.setAttribute('data-open', 'true');"
   										onclick="toggleOption(this)" disabled></select><br/>
 		Attribute: <select 	name="attribute" 	id="attribute"	onchange="console.log('hi')" disabled></select><br/>
 		<button type="submit" onclick="event.preventDefault()">Upload</button>
@@ -43,7 +43,7 @@ function handle_edit({ target: { id, value } }) {
 
 		if (value == 'Monster')	{
 			setSelectOptions('category',["Normal","Effect","Ritual","Fusion","Synchro","Xyz","Pendulum","Link"]);
-			setSelectOptions('ability',["Gemini","Tuner","Toon"]);
+			setSelectOptions('ability',["Gemini","Spirit","Toon","Tuner","Union"]);
 		}
 		if (value == 'Spell') 	setSelectOptions('category',["Normal","Quick-Play","Field","Continuous","Ritual","Equip"]);
 		if (value == 'Trap') 	setSelectOptions('category',["Normal","Continuous","Counter"]);
@@ -93,13 +93,4 @@ function toggleOption(selectElement){
 	//(de-)bold chosen option
 	if (selectedOption.style.fontWeight === 'bold') selectedOption.style.fontWeight = 'normal';
 	else selectedOption.style.fontWeight = 'bold';
-}
-function verifiedChange(selectElement){
-	//call after a change to synchronize open/not open state of the select element for the toggleOption function
-	selectElement.setAttribute('data-open', 'false');
-}
-function verifiedFocus(selectElement){
-	//call after a change to synchronize open/not open state of the select element for the toggleOption function
-	console.log('focused');
-	selectElement.setAttribute('data-open', 'true');
 }
