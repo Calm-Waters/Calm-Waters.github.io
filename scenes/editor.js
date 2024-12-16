@@ -11,7 +11,7 @@ editor_layout = `
 		Category: <select 	name="category" 	id="category" 	onchange="console.log('hi')" disabled></select><br/>
 		Type: <select 		name="type" 		id="type" 	onchange="console.log('hi')" disabled></select><br/>
 		Ability: <select 	name="ability" 		id="ability" 	onchange="verifiedChange(this)" 
-  										oblur="verifiedBlur(this)"
+  										onfocus="console.log('focused')"
   										onclick="toggleOption(this)" disabled></select><br/>
 		Attribute: <select 	name="attribute" 	id="attribute"	onchange="console.log('hi')" disabled></select><br/>
 		<button type="submit" onclick="event.preventDefault()">Upload</button>
@@ -96,8 +96,4 @@ function toggleOption(selectElement){
 function verifiedChange(selectElement){
 	//call after a change to synchronize open/not open state of the select element for the toggleOption function
 	selectElement.setAttribute('data-open', 'false');
-}
-function verifiedBlur(selectElement){
-	selectElement.setAttribute('data-blurred', 'true');
-	console.log('lost focus');
 }
