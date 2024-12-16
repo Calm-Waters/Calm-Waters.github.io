@@ -24,6 +24,7 @@ editor_init = function() {
 		"attribute": ["LIGHT","DARK","FIRE","WATER","WIND","EARTH","DIVINE"]
 	};
 	populateSelectWithDelay(selectData);
+	console.log("editor initialized");
 };
 editor_init();
 
