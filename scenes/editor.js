@@ -58,7 +58,7 @@ function setSelectOptions(selectId, options) {
 		return console.warn(`Element with id "${selectId}" is not a valid target or not found.`);
 	}
 	// If the selectId is "ability", create a custom dropdown with checkboxes
-	if (selectId === 'ability') {
+	if (selectId === 'abilit') {
 		selectElement.innerHTML = options
 			.map(option => `
 				<div class="dropdown-item">
