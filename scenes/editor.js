@@ -3,7 +3,7 @@ editor_layout = `
 	<div class="vbox">
 		<button onclick="loadScene('login')">return to login</button>
 		<button onclick="loadScene('hub')">return to hub</button>
-		<button onclick="loadScene('editor')">reload</button>
+		<button onclick="loadScene('editor')">reload editor</button>
 	</div>
 	<form name="editor_form" id="editor_form">
 		Name: <input type="text"  					onchange="handle_edit(event)"/><br/>
@@ -24,7 +24,6 @@ editor_init = function() {
 		"attribute": ["LIGHT","DARK","FIRE","WATER","WIND","EARTH","DIVINE"]
 	};
 	populateSelectWithDelay(selectData);
-	console.log("editor initialized");
 };
 editor_init();
 
