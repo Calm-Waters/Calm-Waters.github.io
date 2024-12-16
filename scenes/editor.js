@@ -90,5 +90,6 @@ function toggleOption(selectElement){
 }
 
 function attemptUpload(){
+	event.preventDefault();
 	console.log('registered attempt to upload card');
 }
