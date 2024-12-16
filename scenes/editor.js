@@ -10,7 +10,7 @@ editor_layout = `
 		Card Type: <select 	name="card_base" 	id="card_base" 	onchange="handle_edit(event)"></select><br/>
 		Category: <select 	name="category" 	id="category" 	onchange="console.log('hi')" disabled></select><br/>
 		Type: <select 		name="type" 		id="type" 	onchange="console.log('hi')" disabled></select><br/>
-		Ability: <select 	name="ability" 		id="ability" 	onclick="toggleOption(this)" disabled></select><br/>
+		Ability: <select 	name="ability" 		id="ability" 	onclick="toggleOption(this)" disabled onchange="this.setAttribute('data-open', 'false')></select><br/>
 		Attribute: <select 	name="attribute" 	id="attribute"	onchange="console.log('hi')" disabled></select><br/>
 		<button type="submit" onclick="event.preventDefault()">Upload</button>
 	</form>
@@ -73,6 +73,10 @@ function populateSelectWithDelay(data, attempts = 10) {
 }
 
 function toggleOption(selectElement){
+	//attempt to only toggle on actual selection
+	const isOpen = selectElement.getAttribute('data-open') === 'true';
+	selectElement.setAttribute('data-open', isOpen ? 'false' : 'true');
+	if (isOpen) return;
 	const selectedOption = selectElement.options[selectElement.selectedIndex];
 	const checkmark = "🗸"; // Unicode Checkmark (U+1F5F8)
 	//add/remove checkmark from chosen option(s)
