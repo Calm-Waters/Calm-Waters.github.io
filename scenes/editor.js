@@ -38,7 +38,10 @@ function handle_edit({ target: { id, value } }) {
 		const activeFields = enabledFields[value] || [];
 		const allFields = ['category', 'type', 'ability', 'attribute'];
 
-		if (value == 'Monster')	setSelectOptions('category',["Normal","Effect","Ritual","Fusion","Synchro","Xyz","Pendulum","Link"]);
+		if (value == 'Monster')	{
+			setSelectOptions('category',["Normal","Effect","Ritual","Fusion","Synchro","Xyz","Pendulum","Link"]);
+			setSelectOptions('ability',["Gemini","Tuner","Toon"]);
+		}
 		if (value == 'Spell') 	setSelectOptions('category',["Normal","Quick-Play","Field","Continuous","Ritual","Equip"]);
 		if (value == 'Trap') 	setSelectOptions('category',["Normal","Continuous","Counter"]);
 
