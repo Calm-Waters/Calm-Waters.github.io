@@ -11,6 +11,7 @@ notes_layout = `
 			1. Set up the HUB again.
 			2. Create a Card Editor.
 				- Leave effect text empty for now, you just need the cards as placeholders for non-automated testing later.
+    				- Limit yourself to only normal spells and upload the relevant image files for generating previews
 		</div>
 	</div>
 </div>
