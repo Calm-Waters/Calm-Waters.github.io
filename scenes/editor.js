@@ -10,7 +10,7 @@ editor_layout = `
 		Card Type: <select 	name="card_base" 	id="card_base" 	onchange="handle_edit(event)"></select><br/>
 		Category: <select 	name="category" 	id="category" 	onchange="console.log('hi')" disabled></select><br/>
 		Type: <select 		name="type" 		id="type" 	onchange="console.log('hi')" disabled></select><br/>
-		Ability: <select 	name="ability" 		id="ability" 	onchange="toggleOption(this)" disabled></select><br/>
+		Ability: <select 	name="ability" 		id="ability" 	onclick="toggleOption(this)" disabled></select><br/>
 		Attribute: <select 	name="attribute" 	id="attribute"	onchange="console.log('hi')" disabled></select><br/>
 		<button type="submit" onclick="event.preventDefault()">Upload</button>
 	</form>
@@ -55,7 +55,7 @@ function handle_edit({ target: { id, value } }) {
 function setSelectOptions(selectId, options) {
 	const selectElement = document.getElementById(selectId);
 	// Handle case when the element is not found or is not a select element
-	if (!selectElement || (selectId !== 'ability' && selectElement.tagName !== 'SELECT')) {
+	if (!selectElement || selectElement.tagName !== 'SELECT') {
 		return console.warn(`Element with id "${selectId}" is not a valid target or not found.`);
 	}
 	selectElement.innerHTML = `<option hidden selected value=""></option>` +
@@ -74,6 +74,11 @@ function populateSelectWithDelay(data, attempts = 10) {
 
 function toggleOption(selectElement){
 	const selectedOption = selectElement.options[selectElement.selectedIndex];
+	const checkmark = "🗸"; // Unicode Checkmark (U+1F5F8)
+	//add/remove checkmark from chosen option(s)
+	if (selectedOption.textContent.startsWith(checkmark)) selectedOption.textContent = selectedOption.textContent.substring(checkmark.length);
+	else selectedOption.textContent = checkmark + selectedOption.textContent;
+	//(de-)bold chosen option
 	if (selectedOption.style.fontWeight === 'bold') selectedOption.style.fontWeight = 'normal';
 	else selectedOption.style.fontWeight = 'bold';
 }
