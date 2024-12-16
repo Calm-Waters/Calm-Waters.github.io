@@ -20,7 +20,7 @@ editor_init = function() {
 	const selectData = {
 		"card_base": ["Monster","Spell","Trap"],
 		"category": [],
-		"ability": ["Gemini","Tuner","Toon"],
+		"ability": ["Gemini"],
 		"type": ["Aqua","Beast","Beast-Warrior","Cyberse","Dinosaur","Dragon","Fairy","Fiend","Fish","Insect","Machine","Plant","Psychic","Pyro","Reptile","Rock","Sea Serpent","Spellcaster","Thunder","Warrior","Winged Beast","Wyrm","Zombie","Creator God","Divine-Beast"],
 		"attribute": ["LIGHT","DARK","FIRE","WATER","WIND","EARTH","DIVINE"]
 	};
@@ -41,7 +41,7 @@ function handle_edit({ target: { id, value } }) {
 
 		if (value == 'Monster')	{
 			setSelectOptions('category',["Normal","Effect","Ritual","Fusion","Synchro","Xyz","Pendulum","Link"]);
-			setSelectOptions('ability',["Gemini"]);
+			setSelectOptions('ability',["Gemini","Tuner","Toon"]);
 		}
 		if (value == 'Spell') 	setSelectOptions('category',["Normal","Quick-Play","Field","Continuous","Ritual","Equip"]);
 		if (value == 'Trap') 	setSelectOptions('category',["Normal","Continuous","Counter"]);
@@ -59,7 +59,7 @@ function setSelectOptions(selectId, options) {
 		return console.warn(`Element with id "${selectId}" is not a valid target or not found.`);
 	}
 	// If the selectId is "ability", create a custom dropdown with checkboxes
-	if (selectId === 'abilit') {
+	if (selectId === 'ability') {
 		selectElement.innerHTML = options
 			.map(option => `
 				<div class="dropdown-item">
