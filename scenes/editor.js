@@ -71,3 +71,9 @@ function populateSelectWithDelay(data, attempts = 10) {
 	if (attempts > 0) setTimeout(() => populateSelectWithDelay(data, attempts - 1), 100);
 	else console.warn("Select elements not found after multiple attempts.");
 }
+
+function toggleSelect(selectElement){
+	const selectedOption = selectElement.options[selectElement.selectedIndex];
+	if (selectedOption.style.fontWeight === 'bold') selectedOption.style.fontWeight = 'normal';
+	else selectedOption.style.fontWeight = 'bold';
+}
