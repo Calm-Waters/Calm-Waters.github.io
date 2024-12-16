@@ -12,7 +12,7 @@ notes_layout = `
 			2. Create a Card Editor.
 				- Leave effect text empty for now, you just need the cards as placeholders for non-automated testing later.
     				- Limit yourself to only normal spells and upload the relevant image files for generating previews
-			3. Set up mockup logic for normal spells in the solo simulation
+			3. Set up mockup logic for moving cards like db, with a 40 filler card starting deck
 		</div>
 	</div>
 </div>
