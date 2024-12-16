@@ -20,6 +20,7 @@ editor_init = function() {
 	const selectData = {
 		"card_base": ["Monster","Spell","Trap"],
 		"category": [],
+		"ability": [],
 		"type": ["Aqua","Beast","Beast-Warrior","Cyberse","Dinosaur","Dragon","Fairy","Fiend","Fish","Insect","Machine","Plant","Psychic","Pyro","Reptile","Rock","Sea Serpent","Spellcaster","Thunder","Warrior","Winged Beast","Wyrm","Zombie","Creator God","Divine-Beast"],
 		"attribute": ["LIGHT","DARK","FIRE","WATER","WIND","EARTH","DIVINE"]
 	};
