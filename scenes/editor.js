@@ -1,11 +1,11 @@
-card_editor_layout = `
+editor_layout = `
 <div class="scene hbox">
 	<div class="vbox">
 		<button onclick="loadScene('login')">return to login</button>
 		<button onclick="loadScene('hub')">return to hub</button>
-		<button onclick="loadScene('card_editor')">reload</button>
+		<button onclick="loadScene('editor')">reload</button>
 	</div>
-	<form name="card_editor_form" id="card_editor_form">
+	<form name="editor_form" id="editor_form">
 		Name: <input type="text"  								onchange="handle_edit(event)"/><br/>
 		Card Type: <select 	name="card_base" 	id="card_base" 	onchange="handle_edit(event)"></select><br/>
 		Category: <select 	name="category" 	id="category" 	onchange="console.log('hi')" disabled></select><br/>
@@ -16,7 +16,7 @@ card_editor_layout = `
 	</form>
 </div>
 `
-card_editor_init = function() {
+editor_init = function() {
 	const selectData = {
 		"card_base": ["Monster","Spell","Trap"],
 		"category": [],
@@ -25,7 +25,7 @@ card_editor_init = function() {
 	};
 	populateSelectWithDelay(selectData);
 };
-card_editor_init();
+editor_init();
 
 function handle_edit({ target: { id, value } }) {
 	if (id == 'card_base') {
