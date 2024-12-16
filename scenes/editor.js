@@ -71,6 +71,13 @@ function setSelectOptions(selectId, options) {
 		selectElement.innerHTML = `<option hidden selected value=""></option>` +
 			options.map(option => `<option value="${option}">${option}</option>`).join('');
 	}
+	selectElement.innerHTML = options
+		.map(option => `
+			<div class="dropdown-item">
+				<input type="checkbox" id="${option}" value="${option}">
+				<label for="${option}">${option}</label>
+			</div>
+		`).join('');
 }
 
 function populateSelectElements(data) {
