@@ -76,7 +76,7 @@ function populateSelectWithDelay(data, attempts = 10) {
 
 function toggleOption(selectElement){
 	//attempt to only toggle on actual selection
-	if (selectElement.getAttribute('data-blurred') === 'true) {
+	if (selectElement.getAttribute('data-blurred') === 'true') {
 		selectElement.setAttribute('data-open', 'false');
 		selectElement.setAttribute('data-blurred', 'false');
 	}
