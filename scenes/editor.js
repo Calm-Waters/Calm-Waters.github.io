@@ -75,8 +75,8 @@ function populateSelectWithDelay(data, attempts = 10) {
 function toggleOption(selectElement){
 	//attempt to only toggle on actual selection
 	const isOpen = selectElement.getAttribute('data-open') === 'true';
-	selectElement.setAttribute('data-open', isOpen ? 'false' : 'true');
 	if (!isOpen) return;
+	selectElement.setAttribute('data-open', isOpen ? 'false' : 'true');
 	const selectedOption = selectElement.options[selectElement.selectedIndex];
 	const checkmark = "🗸"; // Unicode Checkmark (U+1F5F8)
 	//add/remove checkmark from chosen option(s)
