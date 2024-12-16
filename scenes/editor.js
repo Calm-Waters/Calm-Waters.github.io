@@ -86,3 +86,7 @@ function toggleOption(selectElement){
 	if (selectedOption.style.fontWeight === 'bold') selectedOption.style.fontWeight = 'normal';
 	else selectedOption.style.fontWeight = 'bold';
 }
+function verifiedSelection(selectElement){
+	//call after a change to synchronize open/not open state of the select element for the toggleOption function
+	selectElement.setAttribute('data-open', 'false');
+}
