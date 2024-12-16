@@ -6,10 +6,10 @@ editor_layout = `
 		<button onclick="loadScene('editor')">reload</button>
 	</div>
 	<form name="editor_form" id="editor_form">
-		Name: <input type="text"  								onchange="handle_edit(event)"/><br/>
+		Name: <input type="text"  					onchange="handle_edit(event)"/><br/>
 		Card Type: <select 	name="card_base" 	id="card_base" 	onchange="handle_edit(event)"></select><br/>
 		Category: <select 	name="category" 	id="category" 	onchange="console.log('hi')" disabled></select><br/>
-		Type: <select 		name="type" 		id="type" 		onchange="console.log('hi')" disabled></select><br/>
+		Type: <select 		name="type" 		id="type" 	onchange="console.log('hi')" disabled></select><br/>
 		Ability: <select 	name="ability" 		id="ability" 	onchange="console.log('hi')" disabled></select><br/>
 		Attribute: <select 	name="attribute" 	id="attribute"	onchange="console.log('hi')" disabled></select><br/>
 		<button type="submit" onclick="event.preventDefault()">Upload</button>
