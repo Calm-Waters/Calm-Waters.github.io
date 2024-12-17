@@ -14,10 +14,6 @@ duel_layout = `
 		background-color: black; /* Black background color */
 		border: 1px solid red; /* 1px red border */
 	}
-	.card:nth-child(n) {
-		top: calc(2% + ((n - 1) * (2 / 60))%); /* Increment top offset for each card */
-		left: calc(4% + ((n - 1) * (4 / 60))%); /* Increment left offset for each card */
-	}
 </style>
 <div class="scene hbox centercontainer login">
 	<div class="scene hbox">
