@@ -5,7 +5,7 @@ duel_layout = `
 		border: 1px solid black;
   		position: relative;
 	}
- 	.card-container .card {
+ 	.card-cell .card {
 		width: 60%; /* 60% of the parent's width */
 		height: 90%; /* 90% of the parent's height */
 		background-color: black; /* Black background color */
@@ -14,7 +14,7 @@ duel_layout = `
 		margin-left: 4%; /* Default margin-left for the first card */
 		transition: margin 0.3s; /* Smooth transition for margin changes */
 	}
-	.card-container .card:nth-child(n) {
+	.card-cell .card:nth-child(n) {
 		margin-top: calc(2% + ((n - 1) * (2 / 60))%); /* Increment margin-top for each child */
 		margin-left: calc(4% + ((n - 1) * (4 / 60))%); /* Increment margin-left for each child */
 	}
