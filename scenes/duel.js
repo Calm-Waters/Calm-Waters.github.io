@@ -3,20 +3,20 @@ duel_layout = `
 	.card-cell {
 		flex: 1;
 		border: 1px solid black;
-  		position: relative;
+		justify-content: center; 
+		align-items: center; 
+		position: relative; /* Necessary for absolutely positioning children */
 	}
  	.card-cell .card {
-		width: 62%; /* 60% of the parent's width */
-		height: 96%; /* 90% of the parent's height */
+		position: absolute; /* Allow cards to overlap within the container */
+		width: 60%; /* 60% of the parent's width */
+		height: 90%; /* 90% of the parent's height */
 		background-color: black; /* Black background color */
 		border: 1px solid red; /* 1px red border */
-		margin-top: 2%; /* Default margin-top for the first card */
-		margin-left: 4%; /* Default margin-left for the first card */
-		transition: margin 0.3s; /* Smooth transition for margin changes */
 	}
 	.card-cell .card:nth-child(n) {
-		margin-top: calc(2% + ((n - 1) * (2 / 60))%); /* Increment margin-top for each child */
-		margin-left: calc(4% + ((n - 1) * (4 / 60))%); /* Increment margin-left for each child */
+		top: calc(2% + ((n - 1) * (2 / 60))%); /* Increment top offset for each card */
+		left: calc(4% + ((n - 1) * (4 / 60))%); /* Increment left offset for each card */
 	}
 </style>
 <div class="scene hbox centercontainer login">
