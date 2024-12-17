@@ -85,19 +85,6 @@ duel_layout = `
 	<div class="scene hbox"></div>
 </div>
 `
-duel_init = function() {
-	console.log("hey");
-	document.querySelectorAll('.card-cell').forEach(cell => {
-		cell.addEventListener('mouseenter', () => {
-			//cell.textContent = 'Seen.';
-			cell.textContent = cell.id;
-		});
-		cell.addEventListener('mouseleave', () => {
-			cell.textContent = ''; // Reset text on hover out
-		});
-	});
-};
-duel_init();
 
 //decks are an array of integers, with each integer uniquely identifying a specific card's template. 
 //p1 is always you, as far as code is concerned
@@ -118,17 +105,20 @@ function createCard(parentId) {
 	parent.appendChild(newCard);
 }
 
-//load the player's decks...
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_DE');
-createCard('p1_M1');
+duel_init = function() {
+	console.log("hey");
+	document.querySelectorAll('.card-cell').forEach(cell => {
+		cell.addEventListener('mouseenter', () => {
+			//cell.textContent = 'Seen.';
+			cell.textContent = cell.id;
+		});
+		cell.addEventListener('mouseleave', () => {
+			cell.textContent = ''; // Reset text on hover out
+		});
+	});
+	createCard('p1_DE');
+	createCard('p1_DE');
+	createCard('p1_DE');
+	createCard('p1_M1');
+};
+duel_init();
