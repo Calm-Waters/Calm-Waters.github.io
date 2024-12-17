@@ -4,6 +4,11 @@ duel_layout = `
 		flex: 1;
 		border: 1px solid black;
 	}
+ 	.card-cell.auto-position > * {
+		position: absolute;
+  		top: 2%;
+    		left: 4%;
+  	}
 </style>
 <div class="scene hbox centercontainer login">
 	<div class="scene hbox">
