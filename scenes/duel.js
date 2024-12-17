@@ -9,12 +9,12 @@ duel_layout = `
 	}
  	.card-cell .card {
 		position: absolute; /* Allow cards to overlap within the container */
-		width: 60%; /* 60% of the parent's width */
-		height: 90%; /* 90% of the parent's height */
+		width: 62%; 
+		height: 96%; 
 		background-color: black; /* Black background color */
 		border: 1px solid red; /* 1px red border */
 	}
-	.card-cell .card:nth-child(n) {
+	.card-cell:nth-child(n) {
 		top: calc(2% + ((n - 1) * (2 / 60))%); /* Increment top offset for each card */
 		left: calc(4% + ((n - 1) * (4 / 60))%); /* Increment left offset for each card */
 	}
