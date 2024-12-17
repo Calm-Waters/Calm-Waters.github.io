@@ -71,6 +71,30 @@ duel_layout = `
 	<div class="scene hbox"></div>
 </div>
 `
+
+//decks are an array of integers, with each integer uniquely identifying a specific card's template. 
+//p1 is always you, as far as code is concerned
+
+p1 = {};
+p1.deck_main = [];
+p1.deck_xtra = [];
+p1.deck_side = [];
+
+function createCard(parentId) {
+	const parent = document.getElementById(parentId);
+	if (!parent) {
+		console.error('Parent element not found!');
+		return;
+	}
+	//card's are 90%h, 60%w for/of each valid parent
+	const newCard = document.createElement('div');
+	newCard.style.width = '60%'; // 60% of the parent's width
+	newCard.style.height = '90%'; // 90% of the parent's height
+	newCard.style.backgroundColor = 'black'; // Black background color
+	newCard.style.border = '1px solid red'; // 1px red border
+	parent.appendChild(newCard);
+}
+
 duel_init = function() {
 	console.log("hey");
 	document.querySelectorAll('.card-cell').forEach(cell => {
@@ -82,13 +106,9 @@ duel_init = function() {
 			cell.textContent = ''; // Reset text on hover out
 		});
 	});
+
+	//load the player's decks...
+	createCard(p1_DE);
 };
 duel_init();
-//decks are an array of integers, with each integer uniquely identifying a specific card's template. 
-//p1 is always you, as far as code is concerned
-
-p1 = {};
-p1.deck_main = [];
-p1.deck_xtra = [];
-p1.deck_side = [];
 
