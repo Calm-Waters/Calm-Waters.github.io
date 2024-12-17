@@ -116,9 +116,11 @@ duel_init = function() {
 			cell.textContent = ''; // Reset text on hover out
 		});
 	});
-	createCard('p1_DE');
-	createCard('p1_DE');
-	createCard('p1_DE');
-	createCard('p1_M1');
+	setTimeout(() => {
+		createCard('p1_DE');
+		createCard('p1_DE');
+		createCard('p1_DE');
+		createCard('p1_M1');
+	}, 100);
 };
 duel_init();
