@@ -88,8 +88,8 @@ function createCard(parentId) {
 	}
 	//card's are 90%h, 60%w for/of each valid parent
 	const newCard = document.createElement('div');
-	newCard.style.width = '60%'; // 60% of the parent's width
-	newCard.style.height = '90%'; // 90% of the parent's height
+	newCard.style.width = '60%'; // 62% of the parent's width
+	newCard.style.height = '90%'; // 96% of the parent's height
 	newCard.style.backgroundColor = 'black'; // Black background color
 	newCard.style.border = '1px solid red'; // 1px red border
 	parent.appendChild(newCard);
