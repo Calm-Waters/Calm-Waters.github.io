@@ -3,12 +3,21 @@ duel_layout = `
 	.card-cell {
 		flex: 1;
 		border: 1px solid black;
+  		position: relative;
 	}
- 	.card-cell.auto-position > * {
-		position: absolute;
-  		top: 2%;
-    		left: 4%;
-  	}
+ 	.card-container .card {
+		width: 60%; /* 60% of the parent's width */
+		height: 90%; /* 90% of the parent's height */
+		background-color: black; /* Black background color */
+		border: 1px solid red; /* 1px red border */
+		margin-top: 2%; /* Default margin-top for the first card */
+		margin-left: 4%; /* Default margin-left for the first card */
+		transition: margin 0.3s; /* Smooth transition for margin changes */
+	}
+	.card-container .card:nth-child(n) {
+		margin-top: calc(2% + ((n - 1) * (2 / 60))%); /* Increment margin-top for each child */
+		margin-left: calc(4% + ((n - 1) * (4 / 60))%); /* Increment margin-left for each child */
+	}
 </style>
 <div class="scene hbox centercontainer login">
 	<div class="scene hbox">
@@ -92,10 +101,7 @@ function createCard(parentId) {
 		return;
 	}
 	const newCard = document.createElement('div');
-	newCard.style.width = '62%'; // 62% of the parent's width
-	newCard.style.height = '96%'; // 96% of the parent's height
-	newCard.style.backgroundColor = 'black'; // Black background color
-	newCard.style.border = '1px solid red'; // 1px red border
+	newCard.classList.add('card');
 	parent.appendChild(newCard);
 }
 
