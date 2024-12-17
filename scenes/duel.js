@@ -108,7 +108,7 @@ duel_init = function() {
 	});
 
 	//load the player's decks...
-	createCard(p1_DE);
+	createCard('p1_DE');
 };
 duel_init();
 
