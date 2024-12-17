@@ -6,8 +6,8 @@ duel_layout = `
   		position: relative;
 	}
  	.card-cell .card {
-		width: 60%; /* 60% of the parent's width */
-		height: 90%; /* 90% of the parent's height */
+		width: 62%; /* 60% of the parent's width */
+		height: 96%; /* 90% of the parent's height */
 		background-color: black; /* Black background color */
 		border: 1px solid red; /* 1px red border */
 		margin-top: 2%; /* Default margin-top for the first card */
