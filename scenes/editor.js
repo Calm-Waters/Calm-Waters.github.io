@@ -1,4 +1,7 @@
 editor_layout = `
+<style>
+	
+</style>
 <div class="scene hbox">
 	<div class="vbox">
 		<button onclick="loadScene('login')">return to login</button>
