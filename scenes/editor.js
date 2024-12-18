@@ -12,6 +12,7 @@ editor_layout = `
   	</div>
 	<form name="editor_form" id="editor_form">
 		Name: <input type="text"  					onchange="handle_edit(event)"/><br/>
+  		Effect: <textarea rows="5" cols="30"/><br/>
 		Card Type: <select 	name="card_base" 	id="card_base" 	onchange="handle_edit(event)"></select><br/>
 		Category: <select 	name="category" 	id="category" 	onchange="console.log('hi')" disabled></select><br/>
 		Type: <select 		name="type" 		id="type" 	onchange="console.log('hi')" disabled></select><br/>
