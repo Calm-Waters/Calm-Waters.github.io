@@ -5,6 +5,8 @@ editor_layout = `
 		<button onclick="loadScene('hub')">return to hub</button>
 		<button onclick="loadScene('editor')">reload editor</button>
 	</div>
+ 	<div class="scene card_preview">
+  	</div>
 	<form name="editor_form" id="editor_form">
 		Name: <input type="text"  					onchange="handle_edit(event)"/><br/>
 		Card Type: <select 	name="card_base" 	id="card_base" 	onchange="handle_edit(event)"></select><br/>
