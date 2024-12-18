@@ -29,7 +29,7 @@ editor_init = function() {
 	const selectData = {
 		"card_base": ["Monster","Spell","Trap"],
 		"category": [],
-		"ability": ["Gemini"],
+		"ability": ["Gemini","Spirit","Toon","Tuner","Union"],
 		"type": ["Aqua","Beast","Beast-Warrior","Cyberse","Dinosaur","Dragon","Fairy","Fiend","Fish","Insect","Machine","Plant","Psychic","Pyro","Reptile","Rock","Sea Serpent","Spellcaster","Thunder","Warrior","Winged Beast","Wyrm","Zombie","Creator God","Divine-Beast"],
 		"attribute": ["LIGHT","DARK","FIRE","WATER","WIND","EARTH","DIVINE"]
 	};
@@ -50,7 +50,7 @@ function handle_edit({ target: { id, value } }) {
 
 		if (value == 'Monster')	{
 			setSelectOptions('category',["Normal","Effect","Ritual","Fusion","Synchro","Xyz","Pendulum","Link"]);
-			setSelectOptions('ability',["Gemini","Spirit","Toon","Tuner","Union"]);
+			//setSelectOptions('ability',["Gemini","Spirit","Toon","Tuner","Union"]);
 		}
 		if (value == 'Spell') 	setSelectOptions('category',["Normal","Quick-Play","Field","Continuous","Ritual","Equip"]);
 		if (value == 'Trap') 	setSelectOptions('category',["Normal","Continuous","Counter"]);
