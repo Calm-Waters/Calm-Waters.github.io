@@ -2,76 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Forge</title>
-    <link rel="icon" href="images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyA3k7RiiqOTWRyNgFdw4Z2-c1Cm106OdLo",
-            authDomain: "custom-nexus.firebaseapp.com",
-            databaseURL: "https://custom-nexus-default-rtdb.firebaseio.com",
-            projectId: "custom-nexus",
-            storageBucket: "custom-nexus.firebasestorage.app",
-            messagingSenderId: "469054983781",
-            appId: "1:469054983781:web:ac4f0bc7681074b6edc08c",
-        };
-        const app = initializeApp(firebaseConfig);
-    </script>
+    <title>Calm-Waters.github.io</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #314933;
+            --text-color: #F1FFFA;
+            --link-color: #FE5F55;
+            --link-color-highlight: #FEA09A;
+        }
+        * {
+            font-family: "Atkinson Hyperlegible Next", serif;
+        }
+        html {
+            background-color: var(--background);
+            color: var(--text-color);
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+        main {
+            text-align: center;
+        }
+        a, a:visited {
+            color: var(--link-color);
+        }
+        a:hover {
+            color: var(--link-color-highlight);
+        }
+        h1, h2 {
+            margin-bottom: 0;
+        }
+        h2 {
+            border-bottom: 1px solid var(--link-color);
+            padding-bottom: 5px;
+            font-style: italic;
+        }
+        p {
+            margin: 1.3em;
+        }
+    </style>
 </head>
 <body>
-	<div id="fpsDisplay" style="position: fixed; top: 100%; left: 100%; transform: translate(-110%, -110%); white-space: pre; pointer-events: none;">FPS: 0</div>
-	<div class="root_scene" />
-	<!-- Page Content is loaded via script below. -->
-	<script>
-		//suppress default rmb/context menu
-		document.addEventListener('contextmenu', function(event) {event.preventDefault();});
-		//replaces the innerHTML of the specified element with the provided scene (layout), and adds/runs relevant scripts for that scene
-		/* REMEMBER TO REMOVE THE && false */
-		function loadScene(scene,target='root_scene') {
-			if (window[scene + '_layout'] && false) { 
-				document.querySelectorAll('.' + target).forEach(instance => {instance.innerHTML = window[scene + '_layout']})
-				if (window[scene + '_init']) window[scene + '_init'](); 
-			} else {
-				if (document.getElementById(scene + '_script')) document.getElementById(scene + '_script').remove();
-				const script = document.createElement('script');
-				const timestamp = new Date().getTime();
-				script.src = `scenes/${scene}.js?t=${timestamp}`;
-				//script.src = `scenes/${scene}.js`;
-				script.onload = function() {
-					document.querySelectorAll('.' + target).forEach(instance => {instance.innerHTML = window[scene + '_layout']});
-					if (window[scene + '_init']) window[scene + '_init'](); 
-				}
-				script.id = scene + '_script';
-				document.body.appendChild(script);
-			}
-		}
-		loadScene('login');
-	</script>
-	<!-- this handles the fps / time display -->
-	<script>
-		let lastTime = 0;
-		let fps = 0;
-		let frameCount = 0;
-		let fpsDisplay = document.getElementById("fpsDisplay");
-		function calculateFPS(timestamp) {
-			if (lastTime) {
-				const deltaTime = timestamp - lastTime;
-				frameCount++;
-				if (deltaTime >= 1000) {
-					fps = Math.min(frameCount / (deltaTime / 1000), 120); // Cap at 120 FPS
-					frameCount = 0;
-					lastTime = timestamp;
-				}
-			} else {
-				lastTime = timestamp;
-			}
-			const currentTime = new Date().toLocaleTimeString();
-			fpsDisplay.textContent = `${currentTime}\nFPS: ${fps.toFixed(1)}`;
-			requestAnimationFrame(calculateFPS);
-		}
-		requestAnimationFrame(calculateFPS);
-	</script>
+    <main>
+        <h2>Projects</h2>
+        <p><a href="https://limitlesssocks.github.io/EXU-Scrape/">EXU</a>, a custom Yu-Gi-Oh! format and card viewer.</p>
+        <p><a href="https://limitlesssocks.github.io/yugioh.party/">My mirror of yugioh.party</a>, a Yu-Gi-Oh! tool for calculating deckbuilding probabilities.</p>
+    </main>
 </body>
 </html>
